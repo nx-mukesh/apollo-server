@@ -32,8 +32,6 @@ Answer:- ‍GraphQL is a new architectural element that eliminates the need for 
   4. The message format for GraphQL mutations should be a string while the message format for REST mutations can be anything.
   5. GraphQL uses metadata for query validation whereas REST does not have machine-readable metadata cacheable.
 
-
-
 ## Question: C:- Write down about Schema and Resolvers.
 Answer:- 
 A class-based container for field configuration and resolution logic.

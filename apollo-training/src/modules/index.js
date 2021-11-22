@@ -12,6 +12,7 @@ export default {
     Query: {
       ...user.Query,
     },
+
   },
   typeDefs,
 };

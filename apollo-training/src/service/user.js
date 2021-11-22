@@ -1,4 +1,3 @@
-
 class User {
   constructor() {
     this.users = new Map();
@@ -24,3 +23,5 @@ class User {
     return id;
   }
 }
+
+export default new User();

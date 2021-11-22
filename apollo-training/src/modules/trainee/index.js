@@ -1,1 +1,1 @@
-export {default as trainee} from './query';
+export { default as Query } from './query';

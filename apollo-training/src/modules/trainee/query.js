@@ -1,12 +1,12 @@
-import user from '../../service/user';
+import User from '../../service/user';
 
 export default {
   getAllTrainee: () => {
-    console.log("===>", user.getAllTrainee());
-    return user.getAllTrainee();
+    console.log("===>", User.getAllTrainee());
+    return User.getAllTrainee();
   },
-  getTrainee: (parant, args) => {
+  getTrainee: (parent, args) => {
     const { id } = args;
-    return user.getUser(id);
+    return User.getUser(id);
   },
 };

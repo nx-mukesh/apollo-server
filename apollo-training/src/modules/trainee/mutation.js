@@ -1,19 +1,16 @@
 import userInstance from '../../service/user';
-// import pubsub from '../pubsub';
-
 
 export default {
-  createTrainee: (parent, args, context) => {
+  createTrainee: (parent, args) => {
     const { user } = args;
-
-    return userInstance.createUser(user);
+    return userInstance.createUsers(user);
   },
-  updateTrainee: (parent, args, context) => {
+  updateTrainee: (parent, args) => {
     const { id, role } = args;
-    return userInstance.updateUser(id, role);
+    return userInstance.updateUsers(id, role);
   },
-  deleteTrainee: (parent, args, context) => {
+  deleteTrainee: (parent, args) => {
     const { id } = args;
-    return userInstance.deleteUser(id);
+    return userInstance.deleteUsers(id);
   },
 };

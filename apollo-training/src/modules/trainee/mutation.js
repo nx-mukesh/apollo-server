@@ -3,9 +3,10 @@ import constant from '../../lib/constant';
 import userInstance from '../../service/user';
 
 export default {
-  createTrainee: (parent, args) => {
+  createTrainee: (parent, args, context) => {
     const { user } = args;
-    const addedUser = userInstance.createUsers(user);
+    const { userAPI } = context;
+    const addedUser = userAPI.createTrainee(user);
     pubsub.publish(constant.subscriptions.TRAINEE_ADDED, { traineeAdded: addedUser });
     return addedUser;
   },
@@ -17,8 +18,8 @@ export default {
   },
   deleteTrainee: (parent, args) => {
     const { id } = args;
-    const deletedId = userInstance.deleteUsers(id);
-    pubsub.publish(constant.subscriptions.TRAINEE_DELETED, { traineeDeleted: deletedId });
-    return deletedId;
+    const response = userInstance.deleteUsers(id);
+    pubsub.publish(constant.subscriptions.TRAINEE_DELETED, { traineeDeleted: response });
+    return response;
   },
 };

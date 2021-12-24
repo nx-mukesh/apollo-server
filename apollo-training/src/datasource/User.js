@@ -7,6 +7,10 @@ export class UserAPI extends RESTDataSource {
     this.baseURL = `${config.serviceUrl}/api/user`;
   }
 
+  willSendRequest(request) {
+    request.headers.set('Authorization', this.context.token);
+  }
+
   getMe() {
     return this.get('/me');
   }
@@ -15,11 +19,15 @@ export class UserAPI extends RESTDataSource {
     return this.post('/login', payload);
   }
 
-  async updateTrainee(payload) {
-    return this.put('/', payload);
+  async createUser(payload) {
+    return this.post('/', payload);
   }
 
-  async deleteTrainee(id) {
+  async updateUser(payload) {
+    return this.put(`/${payload.originalId}`, payload);
+  }
+
+  async deleteUser(id) {
     return this.delete(`/${id}`);
   }
 }

@@ -11,9 +11,6 @@
 
 export default {
   getMyProfile: async (parent, args, context) => {
-    // console.log('context ---> ',context);
-    // const { dataSources: { userAPI } }= context;
-    // console.log('context ---> ',context);
     const response = await context.dataSources.userAPI.getMe();
     return [response.data[0]];
   },

@@ -1,28 +1,24 @@
-import userInstance from '../../service/user';
 import pubsub from '../pubsub';
 import constant from '../../lib/constant';
-
+import userInstance from '../../service/user';
 
 export default {
-  createTrainee: (parent, args, context) => {
+  createTrainee: (parent, args) => {
     const { user } = args;
-    const addedUser = userInstance.createUser(user);
-    pubsub.publish(constant.subscriptions.TRAINEE_ADDED, {traineeAdded: addedUser});
-    // return userInstance.createUser(user);
+    const addedUser = userInstance.createUsers(user);
+    pubsub.publish(constant.subscriptions.TRAINEE_ADDED, { traineeAdded: addedUser });
     return addedUser;
   },
-  updateTrainee: (parent, args, context) => {
+  updateTrainee: (parent, args) => {
     const { id, role } = args;
-    const updatedUser = userInstance.updateUser(id, role);
-    pubsub.publish(constant.subscriptions.TRAINEE_UPDATED, {traineeUpdated: updateUser});
-    // return userInstance.updateUser(id, role);
+    const updatedUser = userInstance.updateUsers(id, role);
+    pubsub.publish(constant.subscriptions.TRAINEE_UPDATED, { traineeUpdated: updatedUser });
     return updatedUser;
   },
-  deleteTrainee: (parent, args, context) => {
+  deleteTrainee: (parent, args) => {
     const { id } = args;
-    const deletedId = userInstance.deleteUser(id);
-    pubsub.publish(constant.subscriptions.TRAINEE_DELETED, {traineeDeleted: deletedId}); 
-    // return userInstance.deleteUser(id);
+    const deletedId = userInstance.deleteUsers(id);
+    pubsub.publish(constant.subscriptions.TRAINEE_DELETED, { traineeDeleted: deletedId });
     return deletedId;
   },
 };

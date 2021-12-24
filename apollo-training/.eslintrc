@@ -1,25 +1,30 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "env": {
-    "browser": true,
-    "node": true,
-    "jest": true,
-    "es6": true
+      "browser": true,
+      "node": true,
+      "jest": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb"],
+  "extends": [
+    "airbnb"
+  ],
   "rules": {
     "indent": [2, 2],
     "react/jsx-indent": ["error", 2],
-    "react/prop-types": ["off"],
-    "import/prefer-default-export": "off",
-    "arrow-body-style": ["error", "always"],
-    "jsx-a11y/label-has-for": [
-      2,
-      {
-        "required": {
-          "every": ["id"]
+    "import/prefer-default-export": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true,
+      "classes": true
+    }
+  },
+  "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
         }
       }
-    ]
-  }
+    }
 }

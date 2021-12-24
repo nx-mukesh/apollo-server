@@ -25,11 +25,11 @@ export default class Server {
    * @returns -Instance of Current Object
    */
   bootstrap() {
-    this._initHelmet();
-    this._initCompress();
-    this._initCors();
-    this._initJsonParser();
-    this._initMethodOverride();
+    this.initHelmet();
+    this.initCompress();
+    this.initCors();
+    this.initJsonParser();
+    this.initMethodOverride();
 
     return this;
   }
@@ -72,7 +72,7 @@ export default class Server {
   /**
    * Compression of the output
    */
-  _initCompress() {
+  initCompress() {
     this.app.use(compress());
   }
 
@@ -80,7 +80,7 @@ export default class Server {
    *
    * Lets you to enable cors
    */
-  _initCors() {
+  initCors() {
     this.app.use(cors());
   }
 
@@ -88,14 +88,14 @@ export default class Server {
    *
    * Helmet helps you secure your Express apps by setting various HTTP headers.
    */
-  _initHelmet() {
+  initHelmet() {
     this.app.use(helmet());
   }
 
   /**
    *  - Parses urlencoded bodies & JSON
    */
-  _initJsonParser() {
+  initJsonParser() {
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
   }
@@ -104,7 +104,7 @@ export default class Server {
    *
    * Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
    */
-  _initMethodOverride() {
+  initMethodOverride() {
     this.app.use(methodOverride());
   }
 }

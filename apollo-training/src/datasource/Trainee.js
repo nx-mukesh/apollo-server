@@ -1,5 +1,4 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
-
 import config from '../config/configurations';
 
 export class TraineeAPI extends RESTDataSource {

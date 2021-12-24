@@ -1,2 +1,4 @@
-export { default as TraineeAPI } from './Trainee';
-export { default as UserAPI } from './User';
+import Trainee from './Trainee';
+import User from './User';
+
+export { Trainee, User };

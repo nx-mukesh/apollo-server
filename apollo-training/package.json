@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .jsx --ext .js ./src",
+    "lint:fix": "eslint --ext .jsx --ext .js ./src --fix"
   },
   "repository": {
     "type": "git",
@@ -16,12 +18,14 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/rahuls-nx/apollo-training#readme",
   "dependencies": {
+    "@babel/eslint-parser": "^7.16.5",
     "apollo-server-express": "^2.11.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
     "graphql": "^14.6.0",
     "helmet": "^3.22.0",
     "joi": "^14.3.1",

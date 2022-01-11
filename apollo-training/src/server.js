@@ -7,8 +7,7 @@ import Express from 'express';
 import helmet from 'helmet';
 import methodOverride from 'method-override';
 import { ApolloServer } from 'apollo-server-express';
-import { UserAPI } from './datasource/User';
-import { TraineeAPI } from './datasource/Trainee';
+import { UserAPI, TraineeAPI } from "./datasource";
 
 export default class Server {
   constructor(config) {

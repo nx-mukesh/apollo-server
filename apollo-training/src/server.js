@@ -52,12 +52,11 @@ export default class Server {
 
     this.server = new ApolloServer({
       ...schema,
-      dataSources: ()=>{
-        return {
-          userAPI: new UserAPI(),
-          traineeAPI: new TraineeAPI(),
-        };
-      },
+      dataSources: () => ({
+        userAPI: new UserAPI(),
+        traineeAPI: new TraineeAPI(),
+      }),
+
       onHealthCheck: () => new Promise((resolve) => {
         resolve('I am OK');
       }),

@@ -1,8 +1,19 @@
-type User {
-  id: ID!
-  name: String!
-  email: String!
-  role: String!
+type User{
+    id:ID!
+    name: String!
+    email: String!
+    role: String!
 }
 
+type Email{
+    email: String
+}
 
+input UserInput{
+    email: String!
+    password: String!
+}
+
+type Token{
+    token: String!
+}

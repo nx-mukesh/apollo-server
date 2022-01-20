@@ -10,6 +10,9 @@ const envVarsSchema = Joi.object({
     .default('development'),
   PORT: Joi.number()
     .default(9001),
+  SERVICE_URL: Joi.string()
+    .default('http://localhost:9000'),
+
 }).unknown()
   .required();
 
@@ -18,6 +21,7 @@ const { value: envVars } = Joi.validate(process.env, envVarsSchema);
 const configurations = Object.freeze({
   env: envVars.NODE_ENV,
   port: envVars.PORT,
+  serviceUrl: envVars.SERVICE_URL,
 });
 
 export default configurations;

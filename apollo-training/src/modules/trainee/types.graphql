@@ -1,5 +1,5 @@
-input CreateUserInput {
-  name: String!
-  email: String!
-  role: String!
+input CreateUserInput{
+    name: String!
+    email: String!
+    role: String!
 }

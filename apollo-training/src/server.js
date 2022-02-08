@@ -58,7 +58,6 @@ export default class Server {
       }),
       context: ({ req }) => {
         const token = req.headers.authorization || '';
-        console.log('token at gql: ', token);
         return { user: token };
       },
       onHealthCheck: () => new Promise((resolve) => {

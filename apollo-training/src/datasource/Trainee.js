@@ -4,10 +4,14 @@ import config from '../config/configurations';
 export class TraineeAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = `${config.serviceUrl}/api/trainee`;
+    this.baseURL = `${config.serviceUrl}/api/user`;
   }
 
-  async getTrainee(limit, skip) {
+  willSendRequest(request) {
+    request.headers.set('Authorization', this.context.user);
+  }
+
+  async getTrainee({ limit, skip }) {
     return this.get('/', { limit, skip });
   }
 

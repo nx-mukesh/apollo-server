@@ -5,10 +5,6 @@ type User{
     role: String!
 }
 
-type Email{
-    email: String
-}
-
 input UserInput{
     email: String!
     password: String!
@@ -16,4 +12,4 @@ input UserInput{
 
 type Token{
     token: String!
-}
+} 

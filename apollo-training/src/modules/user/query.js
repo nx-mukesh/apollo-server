@@ -15,7 +15,6 @@ export default {
     // const { dataSources: { userAPI } }= context;
     // console.log('context ---> ',context);
     const response = await context.dataSources.userAPI.getMe();
-    console.log('response for get my profile query ---> ', response.data[0].email);
-    return { email: response.data[0].email };
+    return [response.data[0]];
   },
 };

@@ -56,9 +56,11 @@ export default class Server {
         userAPI: new UserAPI(),
         traineeAPI: new TraineeAPI(),
       }),
-      context: ({ req }) => {
-        const token = req.headers.authorization || '';
-        return { user: token };
+      context: async ({ req }) => {
+        if (req) {
+          return { token: req.headers.authorization };
+        }
+        return {};
       },
       onHealthCheck: () => new Promise((resolve) => {
         resolve('I am OK');

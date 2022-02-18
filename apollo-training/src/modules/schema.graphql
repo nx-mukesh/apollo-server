@@ -9,10 +9,16 @@ type Mutation {
   updateTrainee(id: ID!, role: String!) :User!
   deleteTrainee(id: ID!) : ID!
   loginUser(payload: UserInput): Token!
+  createUser(user: CreateUserInput): User!
+  updateUser(user: UpdateUser): User!
+  deleteUser(id: ID! ): DeleteUserOutput!
 } 
 
 type Subscription{
   traineeAdded : User!
   traineeUpdated : User!
   traineeDeleted : ID!
+  userAdded : User!
+  userUpdated : User!
+  userDeleted : UserDeletedResponse!
 }
